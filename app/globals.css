@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base layer — new visual identity */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        color-scheme: dark;
+    }
+
+    body {
+        @apply bg-brand-bg text-brand-ink antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Merriweather', Georgia, serif;
+    }
+}
+
+@layer components {
+
+    /* Elevated brand button — rounded, neon-accent */
+    .btn-primary {
+        @apply inline-block px-6 py-2 bg-brand-primary text-brand-surface font-semibold tracking-wide rounded-md shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-2xl;
+    }
+
+    .btn-ghost {
+        @apply inline-block px-5 py-2 border border-brand-muted text-brand-ink rounded-md hover:bg-brand-surface/40 transition-colors;
+    }
+
+    .section-title {
+        @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-brand-ink mb-3;
+        /* start visible by default; GSAP will animate */
+    }
+
+    .section-subtitle {
+        @apply text-sm md:text-base text-brand-muted font-medium uppercase mb-6 tracking-wider;
+    }
+
+    .section-container {
+        @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+}
+
+@layer utilities {
+    .fluid-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Custom scrollbar for cohesion */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+}
+
+/* Anchor offset for fixed nav */
+html {
+    scroll-padding-top: 84px;
+}
+
+/* NOTE: Images in /public were part of the original template. Replace them with client-provided assets.
+     - Replace /public/* images with cinematic, wide-angle or ambient images.
+     - For hero composition consider a wide ambience image (not close-up food).
+*/
